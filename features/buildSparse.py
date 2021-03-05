@@ -40,4 +40,5 @@ def buildSparse(df,a,b,colFilter=None,rowFilter=None,makeBinary=False,rowLabels=
         M=M[kp,:]
         rLbl=rLbl.loc[kp]
     
-    return([rLbl,cLbl,M])
+    # return([rLbl,cLbl,M])
+    return(pd.DataFrame.sparse.from_spmatrix(M,columns=cLbl,index=rLbl))
