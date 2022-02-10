@@ -19,6 +19,7 @@ def xval_train(mod,X,y,folds=20):
         A=S.loc[ll,cols]
         mu=A.mean()
         sig=A.std()
+        sig.loc[sig==0]=1
         # mod.fit(S.loc[ll,cols],S.loc[ll,'y'])
         mod.fit((A-mu)/sig,S.loc[ll,'y'])
         betaTrace.append(mod.coef_[0])
