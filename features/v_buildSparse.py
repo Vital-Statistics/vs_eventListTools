@@ -5,10 +5,12 @@ Created on Wed Jun  7 10:29:12 2017
 @author: jel2
 """
 
-def v_buildSparse(x,y,delta):
+def v_buildSparse(x,y,delta=None):
     import scipy
     import pandas as pd
     import numpy as np
+    if delta is None:
+        delta=[1]*len(x)
     i=x.codes
     j=y.codes
     rLbl=pd.Series(x.categories)
