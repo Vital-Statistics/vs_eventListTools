@@ -8,6 +8,7 @@ Created on Tue May 26 13:52:01 2020
 import pandas as pd
 
 def xval_train(mod,X,y,folds=20):
+    import random
     S=pd.concat([y.rename('y'),X],axis=1)
     S['xval']=0
     cols=list(X)
@@ -27,6 +28,7 @@ def xval_train(mod,X,y,folds=20):
     return(S['xval'],pd.DataFrame(dict(zip(cols,zip(*betaTrace)))))
 
 def xval_train_xgb(mod,X,y,folds=20,verbose=False):
+    import random
     S=pd.concat([y.rename('y'),X],axis=1)
     S['xval']=0
     cols=list(X)
@@ -46,6 +48,7 @@ def xval_train_xgb(mod,X,y,folds=20,verbose=False):
     return(S['xval'])
 
 def xval_train_penalty(mod,X,y):
+    import random
     S=pd.merge(y.rename('y'),X,left_index=True,right_index=True)
     S['xval']=0
     cols=list(X)
@@ -61,6 +64,7 @@ def xval_train_penalty(mod,X,y):
     return(S['xval'])
 
 def xval_train_deep(mod,X,y,ep=150,bs=50):
+    import random
     S=pd.merge(y.rename('y'),X,left_index=True,right_index=True)
     S['xval']=0
     cols=list(X)

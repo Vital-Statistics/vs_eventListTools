@@ -34,4 +34,5 @@ def attWeights(y,Z,adjType='ATT',fit_intercept=True):
     print('Population size:',sum(y))
     print('Effective comparator size:',round(sum(w[y==0])))
     
-    return(w)
+    return((w,auc(fpr, tpr),max(w[y==0])))
+    # return(w)
