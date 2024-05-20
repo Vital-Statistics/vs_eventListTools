@@ -5,7 +5,7 @@ Created on Tue May 26 13:52:01 2020
 @author: jolucas
 """
 
-def xval_train(mod,U,cols,unitCol,outcomeCol,dat=None):
+def az_xval_train(mod,U,cols,unitCol,outcomeCol,dat=None):
     S=U.copy()
     S['xval']=0
     S.reset_index(drop=True,inplace=True)
